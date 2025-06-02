@@ -1,7 +1,7 @@
 services:
   db:
     image: postgres:latest
-    container_name: taskvel_db
+    container_name: flights_finder_db
     restart: always
     env_file:
         - .env
