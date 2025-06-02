@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import { FlightService } from "../service/FlightService";
+import { ResponseDTO } from "../dto/response/ResponseDTO";
 
 export class FlightController {
     private service: FlightService;
@@ -11,28 +12,29 @@ export class FlightController {
     public async getAllFlights(req: Request, res: Response): Promise<void> {
         try {
             const flights = await this.service.findAll();
-            res.status(200).json(flights);
+
+            res.status(200).json(ResponseDTO.success(flights, 'Flights fetched successfully'));
         } catch (error) {
-            res.status(500).json({ error: 'Failed to fetch flights' });
+            res.status(500).json(ResponseDTO.error(500, 'Failed to fetch flights'));
         }
     }
 
     public async getFlightById(req: Request, res: Response): Promise<void> {
         const flightId = parseInt(req.params.id, 10);
         if (isNaN(flightId)) {
-            res.status(400).json({ error: 'Invalid flight ID' });
+            res.status(400).json(ResponseDTO.error(400, 'Invalid flight ID'));
             return;
         }
 
         try {
             const flight = await this.service.findById(flightId);
             if (!flight) {
-                res.status(404).json({ error: 'Flight not found' });
+                res.status(404).json(ResponseDTO.error(404, 'Flight not found'));
                 return;
             }
-            res.status(200).json(flight);
+            res.status(200).json(ResponseDTO.success(flight, 'Flight fetched successfully'));
         } catch (error) {
-            res.status(500).json({ error: 'Failed to fetch flight' });
+            res.status(500).json(ResponseDTO.error(500, 'Failed to fetch flight'));
         }
     }
 }
