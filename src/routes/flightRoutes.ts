@@ -1,14 +1,16 @@
 import { Router, Request, Response } from 'express';
+import { FlightController } from '../controller/FlightController';
+
+const flightController = new FlightController();
 
 const router = Router();
 
-router.get('/', (req: Request, res: Response) => {
-    console.log('Fetching all flights');
+router.get('/', async (req: Request, res: Response) => {
+    await flightController.getAllFlights(req, res);
 });
 
-router.get('/:id', (req: Request, res: Response) => {
-    const flightId = req.params.id;
-    console.log(`Fetching flight with ID: ${flightId}`);
+router.get('/:id', async (req: Request, res: Response) => {
+    await flightController.getFlightById(req, res);
 });
 
 export const flightRouter = router;
