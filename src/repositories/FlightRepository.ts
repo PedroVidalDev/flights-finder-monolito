@@ -1,5 +1,6 @@
+import { PrismaClient } from '@prisma/client';
+
 import { PrismaClientSingleton } from "../config/db/PrismaClientSingleton";
-import { PrismaClient } from "../config/db/generated/prisma";
 
 export class FlightRepository {
     private model: PrismaClient;

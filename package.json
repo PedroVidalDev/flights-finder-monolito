@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon --watch src --exec ts-node server.ts",
-    "seed": "ts-node src/config/db/prisma/seed.ts"
+    "seed": "ts-node src/config/db/prisma/PrismaSeeder.ts"
   },
   "keywords": [],
   "author": "",
