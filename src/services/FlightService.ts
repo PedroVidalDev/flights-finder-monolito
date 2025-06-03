@@ -17,7 +17,7 @@ export class FlightService {
         ));
     }
 
-    public async findById(id: number) {
+    public async findById(id: number): Promise<FlightDTO | null> {
         const entity = await this.repository.findById(id);
 
         if (!entity) {
