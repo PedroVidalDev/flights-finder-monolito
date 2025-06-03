@@ -1,8 +1,11 @@
+import { ThemeProvider } from "styled-components"
+import { themes } from "./themes"
+
 function App() {
   return (
-    <>
-      newcad
-    </>
+    <ThemeProvider theme={themes}>
+      
+    </ThemeProvider>
   )
 }
 
