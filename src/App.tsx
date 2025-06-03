@@ -1,12 +1,9 @@
-import { ThemeProvider } from "styled-components"
-import { themes } from "./themes"
+import { ThemeProvider } from 'styled-components'
+
+import { themes } from './themes'
 
 function App() {
-  return (
-    <ThemeProvider theme={themes}>
-      
-    </ThemeProvider>
-  )
+  return <ThemeProvider theme={themes}>dsada dsada</ThemeProvider>
 }
 
 export default App
