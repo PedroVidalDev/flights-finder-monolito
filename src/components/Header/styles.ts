@@ -10,7 +10,7 @@ export const HeaderContainer = styled.div`
   width: 100%;
   padding: 16px;
 
-  border-bottom: 1px solid ${({ theme }) => theme.COLORS.GRAY.MEDIUM};
+  border-bottom: 1px solid ${({ theme }) => theme.COLORS.GRAY.LIGHT};
 `
 
 export const HeaderTitle = styled.h1`
@@ -29,7 +29,7 @@ export const HeaderButton = styled.button`
   border: none;
   border-radius: 100%;
 
-  background-color: ${({ theme }) => theme.COLORS.PRIMARY_COLOR};
+  background-color: ${({ theme }) => theme.COLORS.PRIMARY_COLOR_LIGHT};
   color: ${({ theme }) => theme.COLORS.WHITE};
 
   font-size: ${({ theme }) => theme.FONT_SIZE.MEDIUM};

@@ -1,10 +1,11 @@
+import { HeaderProps } from './types'
+
 import {
   HeaderButton,
   HeaderButtons,
   HeaderContainer,
   HeaderTitle,
 } from './styles'
-import { HeaderProps } from './types'
 
 export const Header = (props: HeaderProps) => {
   const { title } = props
