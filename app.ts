@@ -23,8 +23,4 @@ PrismaClientSingleton.getInstance().$connect().then(() => {
 
 app.use(indexRouter);
 
-app.get('/', (req: Request, res: Response) => {
-  res.send('Hello, World!');
-});
-
 export default app;
