@@ -1,6 +1,8 @@
 import { Request, Response } from "express";
-import { FlightService } from "../service/FlightService";
+
 import { ResponseDTO } from "../dto/response/ResponseDTO";
+
+import { FlightService } from "../service/FlightService";
 
 export class FlightController {
     private service: FlightService;

@@ -1,4 +1,5 @@
 import { Router, Request, Response } from 'express';
+
 import { FlightController } from '../controller/FlightController';
 
 const flightController = new FlightController();
