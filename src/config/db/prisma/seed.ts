@@ -13,8 +13,8 @@ async function main() {
             ...flightDataWithoutId,
         }
     });
-    console.log('Flight seeding finished.');
   }
+  console.log('Flight seeding finished.');
 }
 
 main()
