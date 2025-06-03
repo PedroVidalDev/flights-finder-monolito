@@ -1,13 +1,14 @@
 export const themes = {
   COLORS: {
-    PRIMARY_COLOR: '#7e62ae',
-    PRIMARY_COLOR_LIGHT: '#a694c8',
+    PRIMARY_COLOR: '#1692da',
+    PRIMARY_COLOR_LIGHT: '#8acaf0',
+    PRIMARY_COLOR_DARK: '#0e2c3e',
     BLACK: '#000000',
     WHITE: '#FFFFFF',
     GRAY: {
-      LIGHT: '#f0f0f0',
-      MEDIUM: '#b0b0b0',
-      DARK: '#707070',
+      LIGHT: '#727272',
+      MEDIUM: '#545454',
+      DARK: '#1c1c1c',
     },
   },
   FONTS: {
