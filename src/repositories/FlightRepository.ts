@@ -1,10 +1,11 @@
+import { PrismaClientSingleton } from "../config/db/PrismaClientSingleton";
 import { PrismaClient } from "../config/db/generated/prisma";
 
 export class FlightRepository {
     private model: PrismaClient;
 
     constructor() {
-        this.model = new PrismaClient();
+        this.model = PrismaClientSingleton.getInstance();
     }
 
     public async findAll() {
