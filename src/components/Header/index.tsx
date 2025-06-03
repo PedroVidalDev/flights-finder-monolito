@@ -1,5 +1,7 @@
 import { HeaderProps } from './types'
 
+import { Icon } from './../../components/Icon'
+
 import {
   HeaderButton,
   HeaderButtons,
@@ -14,8 +16,12 @@ export const Header = (props: HeaderProps) => {
     <HeaderContainer>
       <HeaderTitle>{title}</HeaderTitle>
       <HeaderButtons>
-        <HeaderButton>Find Flights</HeaderButton>
-        <HeaderButton>Create Flight</HeaderButton>
+        <HeaderButton>
+          <Icon color='PRIMARY_COLOR_DARK' name='IoHeart' size='24' />
+        </HeaderButton>
+        <HeaderButton>
+          <Icon color='PRIMARY_COLOR_DARK' name='IoNotifications' size='24' />
+        </HeaderButton>
       </HeaderButtons>
     </HeaderContainer>
   )

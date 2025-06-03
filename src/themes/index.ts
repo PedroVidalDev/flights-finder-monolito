@@ -5,11 +5,9 @@ export const themes = {
     PRIMARY_COLOR_DARK: '#0e2c3e',
     BLACK: '#000000',
     WHITE: '#FFFFFF',
-    GRAY: {
-      LIGHT: '#727272',
-      MEDIUM: '#545454',
-      DARK: '#1c1c1c',
-    },
+    GRAY_LIGHT: '#727272',
+    GRAY_MEDIUM: '#545454',
+    GRAY_DARK: '#1c1c1c',
   },
   FONTS: {
     PRIMARY: 'Montserrat, sans-serif',

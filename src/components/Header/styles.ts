@@ -10,13 +10,13 @@ export const HeaderContainer = styled.div`
   width: 100%;
   padding: 16px;
 
-  border-bottom: 1px solid ${({ theme }) => theme.COLORS.GRAY.LIGHT};
+  border-bottom: 1px solid ${({ theme }) => theme.COLORS.GRAY_LIGHT};
 `
 
 export const HeaderTitle = styled.h1`
   font-size: ${({ theme }) => theme.FONT_SIZE.LARGE};
-  color: ${({ theme }) => theme.COLORS.GRAY.DARK};
-  font-weight: ${({ theme }) => theme.FONT_WEIGHT.BOLD};
+  color: ${({ theme }) => theme.COLORS.GRAY_DARK};
+  font-weight: ${({ theme }) => theme.FONT_WEIGHT.MEDIUM};
 `
 
 export const HeaderButtons = styled.div`
@@ -28,9 +28,6 @@ export const HeaderButtons = styled.div`
 export const HeaderButton = styled.button`
   border: none;
   border-radius: 100%;
-
-  background-color: ${({ theme }) => theme.COLORS.PRIMARY_COLOR_LIGHT};
-  color: ${({ theme }) => theme.COLORS.WHITE};
 
   font-size: ${({ theme }) => theme.FONT_SIZE.MEDIUM};
   font-weight: ${({ theme }) => theme.FONT_WEIGHT.MEDIUM};
