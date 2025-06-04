@@ -1,18 +1,11 @@
 import { Table } from './../../../components/Table'
 import { Header } from './../../../components/Header'
 
+import { flightsHeaders } from '../../../constants/tableHeaders'
+
 import { FlightsFindAllContainer, FlightsFindAllTable } from './styles'
 
 export const FlightsFindAll = () => {
-  const columns = [
-    'ID',
-    'Origem',
-    'Destino',
-    'Data de partida',
-    'Data de chegada',
-    'Valor',
-  ]
-
   const data = [
     [
       '1',
@@ -38,7 +31,7 @@ export const FlightsFindAll = () => {
       <Header title='Buscar voos' />
 
       <FlightsFindAllTable>
-        <Table columns={columns} data={data} />
+        <Table columns={flightsHeaders} data={data} />
       </FlightsFindAllTable>
     </FlightsFindAllContainer>
   )
