@@ -33,8 +33,4 @@ export const HeaderButton = styled.button`
   font-weight: ${({ theme }) => theme.FONT_WEIGHT.MEDIUM};
 
   cursor: pointer;
-
-  &:hover {
-    background-color: ${({ theme }) => theme.COLORS.PRIMARY_COLOR_LIGHT};
-  }
 `

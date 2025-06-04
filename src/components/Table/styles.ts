@@ -15,6 +15,12 @@ export const TableRow = styled.div`
 
   align-items: center;
   justify-content: space-between;
+
+  transition: 0.5s;
+
+  &:hover {
+    transform: scale(1.01);
+  }
 `
 
 export const TableCell = styled.div`
