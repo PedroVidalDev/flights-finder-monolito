@@ -1,6 +1,6 @@
 import dotenv from 'dotenv';
 import express from 'express';
-import { Request, Response } from 'express';
+import cors from 'cors';
 
 import { indexRouter } from './src/routes';
 import { PrismaClientSingleton } from './src/config/db/PrismaClientSingleton';
@@ -20,6 +20,8 @@ PrismaClientSingleton.getInstance().$connect().then(() => {
   console.error('Database connection failed:', error);
   process.exit(1);
 });
+
+app.use(cors());
 
 app.use(indexRouter);
 
