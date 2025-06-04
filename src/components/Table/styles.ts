@@ -7,7 +7,7 @@ export const TableContainer = styled.div`
   display: flex;
   flex-direction: column;
 
-  gap: 16px;
+  gap: 24px;
 `
 
 export const TableRow = styled.div`
@@ -31,4 +31,8 @@ export const TableCell = styled.div`
     font-weight: ${theme.FONT_WEIGHT.LIGHT};
     font-size: ${theme.FONT_SIZE.MEDIUM};
   `}
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `

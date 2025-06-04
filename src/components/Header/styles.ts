@@ -14,7 +14,7 @@ export const HeaderContainer = styled.div`
 `
 
 export const HeaderTitle = styled.h1`
-  font-size: ${({ theme }) => theme.FONT_SIZE.LARGE};
+  font-size: ${({ theme }) => theme.FONT_SIZE.XLARGE};
   color: ${({ theme }) => theme.COLORS.GRAY_DARK};
   font-weight: ${({ theme }) => theme.FONT_WEIGHT.MEDIUM};
 `

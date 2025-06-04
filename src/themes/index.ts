@@ -17,6 +17,8 @@ export const themes = {
     SMALL: '12px',
     MEDIUM: '16px',
     LARGE: '20px',
+    XLARGE: '24px',
+    XXLARGE: '32px',
   },
   FONT_WEIGHT: {
     LIGHT: 300,
