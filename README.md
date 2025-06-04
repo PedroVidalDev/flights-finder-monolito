@@ -9,6 +9,7 @@ Desafio técnico para vaga de júnior com o objetivo de criar uma Rest API com c
 
 ## Como rodar
 - Inicialmente defina as variáveis de ambiente (instrução no .env.example)
+- Agora, baixe as dependências com: `npm i`
 - Rode os seeders com o comando: `npm run seed`
 - Após isso inicie a api com: `npm run dev`
 - Por fim, bastá testá-la usando o Postman ou algum software parecido
