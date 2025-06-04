@@ -1,10 +1,10 @@
 import { ThemeProvider } from 'styled-components'
 
+import { FlightsFindAll } from 'pages/Flights/FlightsFindAll'
+
+import { SideBarContainer } from 'components/SideBar/styles'
+
 import { themes } from './themes'
-
-import { FlightsFindAll } from './pages/Flights/FlightsFindAll'
-
-import { SideBarContainer } from './components/SideBar/styles'
 
 function App() {
   return (

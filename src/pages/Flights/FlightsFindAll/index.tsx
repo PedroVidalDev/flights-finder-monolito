@@ -1,37 +1,29 @@
-import { Table } from './../../../components/Table'
-import { Header } from './../../../components/Header'
+import { useEffect } from 'react'
 
-import { flightsHeaders } from '../../../constants/tableHeaders'
+import { Table } from 'components/Table'
+import { Header } from 'components/Header'
+
+import { flightsHeaders } from 'constants/tableHeaders'
+
+import { useFlights } from 'hooks/useFlights'
 
 import { FlightsFindAllContainer, FlightsFindAllTable } from './styles'
 
 export const FlightsFindAll = () => {
-  const data = [
-    [
-      '1',
-      'São Paulo',
-      'Rio de Janeiro',
-      '2023-10-01',
-      '2023-10-01',
-      'R$ 500,00',
-    ],
-    [
-      '2',
-      'Belo Horizonte',
-      'Salvador',
-      '2023-10-02',
-      '2023-10-02',
-      'R$ 300,00',
-    ],
-    ['3', 'Curitiba', 'Florianópolis', '2023-10-03', '2023-10-03', 'R$ 200,00'],
-  ]
+  const { fetchGetAllFlights, flights } = useFlights()
+
+  console.log('FlightsFindAll - flights', flights)
+
+  useEffect(() => {
+    fetchGetAllFlights()
+  }, [fetchGetAllFlights])
 
   return (
     <FlightsFindAllContainer>
       <Header title='Buscar voos' />
 
       <FlightsFindAllTable>
-        <Table columns={flightsHeaders} data={data} />
+        <Table columns={flightsHeaders} data={[]} />
       </FlightsFindAllTable>
     </FlightsFindAllContainer>
   )

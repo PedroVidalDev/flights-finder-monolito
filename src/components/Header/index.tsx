@@ -1,6 +1,6 @@
 import { HeaderProps } from './types'
 
-import { Icon } from './../../components/Icon'
+import { Icon } from 'components/Icon'
 
 import {
   HeaderButton,
