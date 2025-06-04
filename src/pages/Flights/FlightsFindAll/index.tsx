@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 
 import { Table } from 'components/Table'
 import { Header } from 'components/Header'
+import { FlightsFindAllFilters } from './components/FlightsFindAllFilters'
 
 import { flightsHeaders } from 'constants/tableHeaders'
 
@@ -20,6 +21,8 @@ export const FlightsFindAll = () => {
   return (
     <FlightsFindAllContainer>
       <Header title='Buscar voos' />
+
+      <FlightsFindAllFilters />
 
       <FlightsFindAllTable>
         <Table
