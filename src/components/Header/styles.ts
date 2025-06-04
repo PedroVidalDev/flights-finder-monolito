@@ -32,5 +32,7 @@ export const HeaderButton = styled.button`
   font-size: ${({ theme }) => theme.FONT_SIZE.MEDIUM};
   font-weight: ${({ theme }) => theme.FONT_WEIGHT.MEDIUM};
 
+  background: none;
+
   cursor: pointer;
 `
