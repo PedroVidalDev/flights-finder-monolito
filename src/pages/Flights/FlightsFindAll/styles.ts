@@ -7,3 +7,12 @@ export const FlightsFindAllContainer = styled.div`
   flex: 1;
   height: 100%;
 `
+
+export const FlightsFindAllTable = styled.div`
+  flex: 1;
+
+  width: 100%;
+  height: 100%;
+
+  padding: 24px;
+`
