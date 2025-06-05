@@ -12,7 +12,7 @@ import { FlightsFindAllContainer, FlightsFindAllTable } from './styles'
 import { getFormattedDate } from 'utils/getFormattedDate'
 
 export const FlightsFindAll = () => {
-  const { fetchGetAllFlights, flights } = useFlights()
+  const { fetchGetAllFlights, flights, maxPage } = useFlights()
 
   useEffect(() => {
     fetchGetAllFlights()
@@ -27,6 +27,7 @@ export const FlightsFindAll = () => {
       <FlightsFindAllTable>
         <Table
           fetchData={fetchGetAllFlights}
+          maxPage={maxPage}
           columns={flightsHeaders}
           data={flights.map((flight) => {
             return [

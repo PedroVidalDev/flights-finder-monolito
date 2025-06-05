@@ -1,22 +1,31 @@
 import { useCallback, useState } from 'react'
 
 import { FlightDTO } from 'dtos/FlightDTO'
-import { ResponseDTO } from 'dtos/ResponseDTO'
+import { PaginationDTO } from 'dtos/ResponseDTO'
 
 import { api } from 'services/axios'
 
 export const useFlights = () => {
   const [flights, setFlights] = useState<FlightDTO[]>([])
+  const [maxPage, setMaxPage] = useState<number>(1)
 
   const fetchGetAllFlights = useCallback(async (page?: number) => {
-    const response = await api.get<ResponseDTO<FlightDTO[]>>('/flights', {
+    const response = await api.get<PaginationDTO<FlightDTO[]>>('/flights', {
       params: {
         page: page ?? 1,
         limit: 10,
       },
     })
-    setFlights(response.data.data ?? [])
+    setFlights(response.data.data?.data ?? [])
+
+    const total = response.data.data?.total
+    const limit = response.data.data?.limit
+    if (typeof total === 'number' && typeof limit === 'number' && limit > 0) {
+      setMaxPage(Math.ceil(total / limit))
+    } else {
+      setMaxPage(1)
+    }
   }, [])
 
-  return { fetchGetAllFlights, flights }
+  return { fetchGetAllFlights, flights, maxPage }
 }
