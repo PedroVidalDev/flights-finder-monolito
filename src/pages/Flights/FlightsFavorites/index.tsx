@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { flightsHeaders } from 'constants/tableHeaders'
 
@@ -11,29 +11,19 @@ import { useFlights } from 'hooks/useFlights'
 
 import { getStorageFavoriteFlights } from 'services/storage'
 
-import { FlightDTO } from 'dtos/FlightDTO'
-
 import { FlightsFavoritesContainer, FlightsFindAllTable } from './styles'
 
 export const FlightsFavorites = () => {
   const { fetchGetAllFlights, flights } = useFlights()
 
-  const [favoriteFlights, setFavoriteFlights] = useState<FlightDTO[]>([])
-  const [maxPage, setMaxPage] = useState(0)
-
-  const defineFavoriteFlight = useCallback(() => {
-    const storageFavoriteFlights = getStorageFavoriteFlights()
-    const favoriteFlights = flights.filter((flight) =>
-      storageFavoriteFlights.includes(flight.id),
-    )
-    setFavoriteFlights(favoriteFlights)
-    setMaxPage(Math.ceil(favoriteFlights.length / 10))
-  }, [flights])
+  const [maxPage, setMaxPage] = useState<number>(1)
 
   useEffect(() => {
-    fetchGetAllFlights()
-    defineFavoriteFlight()
-  }, [defineFavoriteFlight, fetchGetAllFlights])
+    fetchGetAllFlights(null, [
+      { field: 'id', value: getStorageFavoriteFlights() },
+    ])
+    setMaxPage(Math.ceil(getStorageFavoriteFlights().length / 10))
+  }, [fetchGetAllFlights])
 
   return (
     <FlightsFavoritesContainer>
@@ -42,7 +32,7 @@ export const FlightsFavorites = () => {
       <FlightsFindAllTable>
         <Table
           columns={flightsHeaders}
-          data={favoriteFlights.map((flight) => {
+          data={flights.map((flight) => {
             return [
               flight.id,
               flight.flightNumber,
@@ -57,7 +47,11 @@ export const FlightsFavorites = () => {
               }),
             ]
           })}
-          fetchData={fetchGetAllFlights}
+          fetchData={(page: number) =>
+            fetchGetAllFlights(page, [
+              { field: 'id', value: getStorageFavoriteFlights() },
+            ])
+          }
           maxPage={maxPage}
         />
       </FlightsFindAllTable>

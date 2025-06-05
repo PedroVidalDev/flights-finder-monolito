@@ -12,7 +12,7 @@ export const useFlights = () => {
   const fetchGetAllFlights = useCallback(
     async (
       page?: number | null,
-      filters?: { field: string; value: string }[],
+      filters?: { field: string; value: string | string[] }[],
     ) => {
       const response = await api.get<PaginationDTO<FlightDTO[]>>('/flights', {
         params: {

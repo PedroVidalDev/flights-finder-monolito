@@ -18,6 +18,9 @@ export const TablePagination = (paginationProps: PaginationProps) => {
   const handlePageChange = (newPage: number) => {
     setPage(newPage)
     fetchData(newPage)
+
+    console.log(`Fetching data for page: ${newPage}`)
+    console.log(`Max page: ${maxPage}`)
   }
 
   return (

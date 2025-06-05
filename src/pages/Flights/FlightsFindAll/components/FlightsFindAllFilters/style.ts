@@ -27,6 +27,10 @@ export const InputsContainer = styled.div`
   height: 100%;
 
   gap: 16px;
+
+  @media (max-width: 1200px) {
+    flex-direction: column;
+  }
 `
 
 export const FilterButtonContainer = styled.div`

@@ -27,7 +27,7 @@ export const Table = (props: TableProps) => {
   const handleFavorite = (id: number) => {
     appendStorageFavoriteFlights(id)
 
-    window.location.reload()
+    setFavoriteFlights(getStorageFavoriteFlights())
   }
 
   useEffect(() => {
