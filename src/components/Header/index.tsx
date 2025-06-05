@@ -31,9 +31,6 @@ export const Header = (props: HeaderProps) => {
             <Icon color='PRIMARY_COLOR_DARK' name='IoAirplane' size='24' />
           </HeaderButton>
         )}
-        <HeaderButton>
-          <Icon color='PRIMARY_COLOR_DARK' name='IoNotifications' size='24' />
-        </HeaderButton>
       </HeaderButtons>
     </HeaderContainer>
   )
