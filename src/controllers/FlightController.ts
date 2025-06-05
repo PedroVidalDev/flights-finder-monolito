@@ -16,8 +16,11 @@ export class FlightController {
         try {
             const paginationParamsDto = new PaginationParamsDTO(
                 parseInt(req.query.page as string, 10) || 1,
-                parseInt(req.query.limit as string, 10) || 10
+                parseInt(req.query.limit as string, 10) || 10,
+                req.query.filters ? JSON.parse(req.query.filters as string) : []
             );
+
+            console.log('Pagination Params:', paginationParamsDto);
 
             const flights = await this.service.findAll(paginationParamsDto);
 

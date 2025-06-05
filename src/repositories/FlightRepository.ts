@@ -12,12 +12,23 @@ export class FlightRepository {
     }
 
     public async findAll(paginationParamsDto: PaginationParamsDTO): Promise<[Flight[], number]> {
-        const { page, limit } = paginationParamsDto;
+        const { page, limit, filters } = paginationParamsDto;
         const skip = (page - 1) * limit;
+
+        const whereClause: Record<string, any> = {};
+
+        if (filters && filters.length > 0) {
+            filters.forEach(filter => {
+                whereClause[filter.field] = filter.value;
+            });
+        }
+
+        console.log("Where Clause:", whereClause);
 
         const flightData = await this.model.flight.findMany({
             skip: skip,
             take: limit,
+            where: whereClause,
         });
 
         const total = await this.model.flight.count();
