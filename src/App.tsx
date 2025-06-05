@@ -1,16 +1,16 @@
 import { ThemeProvider } from 'styled-components'
 
-import { FlightsFindAll } from 'pages/Flights/FlightsFindAll'
+import { themes } from './themes'
+
+import { AppRoutes } from './Routes'
 
 import { SideBarContainer } from 'components/SideBar/styles'
-
-import { themes } from './themes'
 
 function App() {
   return (
     <ThemeProvider theme={themes}>
       <SideBarContainer />
-      <FlightsFindAll />
+      <AppRoutes />
     </ThemeProvider>
   )
 }
