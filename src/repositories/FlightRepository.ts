@@ -2,6 +2,7 @@ import { PrismaClient } from '@prisma/client';
 
 import { Flight } from '../entities/Flight';
 import { PrismaClientSingleton } from "../config/db/PrismaClientSingleton";
+import { PaginationParamsDTO } from 'src/dtos/pagination/PaginationParamsDTO';
 
 export class FlightRepository {
     private model: PrismaClient;
@@ -10,8 +11,14 @@ export class FlightRepository {
         this.model = PrismaClientSingleton.getInstance();
     }
 
-    public async findAll(): Promise<Flight[]> {
-        const flightData = await this.model.flight.findMany();
+    public async findAll(paginationParamsDto: PaginationParamsDTO): Promise<Flight[]> {
+        const { page, limit } = paginationParamsDto;
+        const skip = (page - 1) * limit;
+
+        const flightData = await this.model.flight.findMany({
+            skip: skip,
+            take: limit,
+        });
 
         return flightData.map(flight =>
             new Flight(

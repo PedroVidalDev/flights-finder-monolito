@@ -3,6 +3,7 @@ import { Request, Response } from "express";
 import { ResponseDTO } from "../dtos/response/ResponseDTO";
 
 import { FlightService } from "../services/FlightService";
+import { PaginationParamsDTO } from "../dtos/pagination/PaginationParamsDTO";
 
 export class FlightController {
     private service: FlightService;
@@ -13,9 +14,14 @@ export class FlightController {
 
     public async getAllFlights(req: Request, res: Response): Promise<void> {
         try {
-            const flights = await this.service.findAll();
+            const paginationParamsDto = new PaginationParamsDTO(
+                parseInt(req.query.page as string, 10) || 1,
+                parseInt(req.query.limit as string, 10) || 10
+            );
 
-            res.status(200).json(ResponseDTO.success(flights, 'Flights fetched successfully'));
+            const flights = await this.service.findAll(paginationParamsDto);
+
+            res.status(200).json(ResponseDTO.success(flights, 'Flights fetched successfully', paginationParamsDto));
         } catch (error) {
             res.status(500).json(ResponseDTO.error(500, 'Failed to fetch flights'));
         }
