@@ -20,8 +20,6 @@ export class FlightController {
                 req.query.filters ? JSON.parse(req.query.filters as string) : []
             );
 
-            console.log('Pagination Params:', paginationParamsDto);
-
             const flights = await this.service.findAll(paginationParamsDto);
 
             res.status(200).json(ResponseDTO.success(flights, 'Flights fetched successfully'));

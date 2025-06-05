@@ -20,21 +20,25 @@ export class FlightRepository {
         if (filters && filters.length > 0) {
             filters.forEach(filter => {
                 if (filter.field === 'departure' && typeof filter.value === 'string') {
-                const dateString = filter.value;
+                    const dateString = filter.value;
 
-                const startDate = new Date(dateString);
-                startDate.setUTCHours(0, 0, 0, 0);
+                    const startDate = new Date(dateString);
+                    startDate.setUTCHours(0, 0, 0, 0);
 
-                const endDate = new Date(startDate);
-                endDate.setUTCDate(startDate.getUTCDate() + 1);
+                    const endDate = new Date(startDate);
+                    endDate.setUTCDate(startDate.getUTCDate() + 1);
 
-                whereClause[filter.field] = {
-                    gte: startDate,
-                    lt: endDate,
-                };
-            } else {
-                whereClause[filter.field] = filter.value;
-            }
+                    whereClause[filter.field] = {
+                        gte: startDate,
+                        lt: endDate,
+                    };
+                } else if(filter.field === 'id') {
+                    whereClause[filter.field] = {
+                        in: Array.isArray(filter.value) ? filter.value : [filter.value],
+                    };
+                } else {
+                    whereClause[filter.field] = filter.value;
+                }
             });
         }
 
