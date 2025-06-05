@@ -2,14 +2,9 @@ import { useNavigate } from 'react-router-dom'
 
 import { HeaderProps } from './types'
 
-import { Icon } from 'components/Icon'
+import { Button } from 'components/Button'
 
-import {
-  HeaderButton,
-  HeaderButtons,
-  HeaderContainer,
-  HeaderTitle,
-} from './styles'
+import { HeaderButtons, HeaderContainer, HeaderTitle } from './styles'
 
 export const Header = (props: HeaderProps) => {
   const { title } = props
@@ -23,15 +18,21 @@ export const Header = (props: HeaderProps) => {
       <HeaderTitle>{title}</HeaderTitle>
       <HeaderButtons>
         {currentPath !== '/flights/favorites' ? (
-          <HeaderButton onClick={() => navigate('/flights/favorites')}>
-            <Icon color='PRIMARY_COLOR_DARK' name='IoHeart' size='24' />
-            <p> Favoritos </p>
-          </HeaderButton>
+          <Button
+            color='PRIMARY_COLOR_DARK'
+            icon='IoHeart'
+            text='Favoritos'
+            type='secondary'
+            onClick={() => navigate('/flights/favorites')}
+          />
         ) : (
-          <HeaderButton onClick={() => navigate('/flights')}>
-            <Icon color='PRIMARY_COLOR_DARK' name='IoAirplane' size='24' />
-            <p> Voltar para voos </p>
-          </HeaderButton>
+          <Button
+            color='PRIMARY_COLOR_DARK'
+            icon='IoArrowBack'
+            text='Voltar para voos'
+            type='secondary'
+            onClick={() => navigate('/flights')}
+          />
         )}
       </HeaderButtons>
     </HeaderContainer>

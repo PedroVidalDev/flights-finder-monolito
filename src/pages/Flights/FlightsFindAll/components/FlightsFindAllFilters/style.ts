@@ -29,28 +29,12 @@ export const InputsContainer = styled.div`
   gap: 16px;
 `
 
-export const FilterButton = styled.button`
-  height: 40px;
-  width: fit-content;
+export const FilterButtonContainer = styled.div`
+  display: flex;
 
-  padding: 12px 26px;
+  justify-content: flex-end;
 
-  background-color: ${({ theme }) => theme.COLORS.PRIMARY_COLOR};
-  color: ${({ theme }) => theme.COLORS.WHITE};
+  width: 100%;
 
-  font-size: ${({ theme }) => theme.FONT_SIZE.SMALL};
-  font-weight: ${({ theme }) => theme.FONT_WEIGHT.BOLD};
-
-  border: none;
-  border-radius: 8px;
-
-  cursor: pointer;
-
-  transition: 0.5s;
-
-  margin-left: auto;
-
-  &:hover {
-    background-color: ${({ theme }) => theme.COLORS.PRIMARY_COLOR_LIGHT};
-  }
+  gap: 16px;
 `
