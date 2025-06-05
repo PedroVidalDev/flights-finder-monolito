@@ -1,13 +1,19 @@
+import { useCallback, useEffect, useState } from 'react'
+
+import { flightsHeaders } from 'constants/tableHeaders'
+
+import { getFormattedDate } from 'utils/getFormattedDate'
+
+import { Table } from 'components/Table'
 import { Header } from 'components/Header'
 
-import { FlightsFavoritesContainer, FlightsFindAllTable } from './styles'
-import { Table } from 'components/Table'
-import { flightsHeaders } from 'constants/tableHeaders'
 import { useFlights } from 'hooks/useFlights'
-import { useCallback, useEffect, useState } from 'react'
-import { getFormattedDate } from 'utils/getFormattedDate'
+
 import { getStorageFavoriteFlights } from 'services/storage'
+
 import { FlightDTO } from 'dtos/FlightDTO'
+
+import { FlightsFavoritesContainer, FlightsFindAllTable } from './styles'
 
 export const FlightsFavorites = () => {
   const { fetchGetAllFlights, flights } = useFlights()

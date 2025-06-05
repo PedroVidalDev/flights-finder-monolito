@@ -11,7 +11,13 @@ import {
   getStorageFavoriteFlights,
 } from 'services/storage'
 
-import { TableCell, TableCellAction, TableContainer, TableRow } from './styles'
+import {
+  NoDataWarning,
+  TableCell,
+  TableCellAction,
+  TableContainer,
+  TableRow,
+} from './styles'
 
 export const Table = (props: TableProps) => {
   const { columns, data, fetchData, maxPage } = props
@@ -28,7 +34,7 @@ export const Table = (props: TableProps) => {
     setFavoriteFlights(getStorageFavoriteFlights())
   }, [])
 
-  return (
+  return data.length > 0 ? (
     <TableContainer>
       <TableHeader columns={columns} />
 
@@ -55,5 +61,7 @@ export const Table = (props: TableProps) => {
 
       <TablePagination fetchData={fetchData} maxPage={maxPage} />
     </TableContainer>
+  ) : (
+    <NoDataWarning> Nenhum voo encontrado... </NoDataWarning>
   )
 }

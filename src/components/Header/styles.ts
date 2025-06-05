@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const HeaderContainer = styled.div`
   display: flex;
@@ -26,8 +26,17 @@ export const HeaderButtons = styled.div`
 `
 
 export const HeaderButton = styled.button`
-  border: none;
-  border-radius: 100%;
+  display: flex;
+
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+  padding: 8px 16px;
+
+  border: 1px solid transparent;
+  border-radius: 8px;
 
   font-size: ${({ theme }) => theme.FONT_SIZE.MEDIUM};
   font-weight: ${({ theme }) => theme.FONT_WEIGHT.MEDIUM};
@@ -35,4 +44,19 @@ export const HeaderButton = styled.button`
   background: none;
 
   cursor: pointer;
+
+  p {
+    ${({ theme }) => css`
+      color: ${theme.COLORS.PRIMARY_COLOR_DARK};
+      font-size: ${theme.FONT_SIZE.MEDIUM};
+      font-weight: ${theme.FONT_WEIGHT.BOLD};
+    `}
+  }
+
+  transition: 0.5s;
+
+  &:hover {
+    transform: scale(1.1);
+    border: 1px solid ${({ theme }) => theme.COLORS.PRIMARY_COLOR_DARK};
+  }
 `

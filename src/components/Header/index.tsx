@@ -25,10 +25,12 @@ export const Header = (props: HeaderProps) => {
         {currentPath !== '/flights/favorites' ? (
           <HeaderButton onClick={() => navigate('/flights/favorites')}>
             <Icon color='PRIMARY_COLOR_DARK' name='IoHeart' size='24' />
+            <p> Favoritos </p>
           </HeaderButton>
         ) : (
           <HeaderButton onClick={() => navigate('/flights')}>
             <Icon color='PRIMARY_COLOR_DARK' name='IoAirplane' size='24' />
+            <p> Voltar para voos </p>
           </HeaderButton>
         )}
       </HeaderButtons>

@@ -50,3 +50,14 @@ export const TableCellAction = styled.div`
     opacity: 0.8;
   }
 `
+
+export const NoDataWarning = styled.p`
+  ${({ theme }) => css`
+    color: ${theme.COLORS.GRAY_DARK};
+    font-weight: ${theme.FONT_WEIGHT.MEDIUM};
+    font-size: ${theme.FONT_SIZE.MEDIUM};
+  `}
+
+  text-align: center;
+  margin-top: 24px;
+`
