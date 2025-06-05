@@ -36,3 +36,17 @@ export const TableCell = styled.div`
   overflow: hidden;
   text-overflow: ellipsis;
 `
+
+export const TableCellAction = styled.div`
+  width: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+  }
+`

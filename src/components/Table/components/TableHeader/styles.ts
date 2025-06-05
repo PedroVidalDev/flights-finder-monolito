@@ -8,4 +8,12 @@ export const TableHeaderCell = styled.div`
     font-weight: ${theme.FONT_WEIGHT.REGULAR};
     font-size: ${theme.FONT_SIZE.MEDIUM};
   `}
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+`
+
+export const TableHeaderActionCell = styled.div`
+  width: 50px;
 `

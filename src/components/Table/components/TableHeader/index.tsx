@@ -2,7 +2,7 @@ import { TableRow } from '../../styles'
 
 import { TableHeaderProps } from './types'
 
-import { TableHeaderCell } from './styles'
+import { TableHeaderActionCell, TableHeaderCell } from './styles'
 
 export const TableHeader = (props: TableHeaderProps) => {
   const { columns } = props
@@ -12,6 +12,7 @@ export const TableHeader = (props: TableHeaderProps) => {
       {columns.map((column, index) => (
         <TableHeaderCell key={index}>{column}</TableHeaderCell>
       ))}
+      <TableHeaderActionCell />
     </TableRow>
   )
 }
