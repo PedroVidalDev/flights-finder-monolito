@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router-dom'
+
 import { HeaderProps } from './types'
 
 import { Icon } from 'components/Icon'
@@ -12,11 +14,13 @@ import {
 export const Header = (props: HeaderProps) => {
   const { title } = props
 
+  const navigate = useNavigate()
+
   return (
     <HeaderContainer>
       <HeaderTitle>{title}</HeaderTitle>
       <HeaderButtons>
-        <HeaderButton>
+        <HeaderButton onClick={() => navigate('/flights/favorites')}>
           <Icon color='PRIMARY_COLOR_DARK' name='IoHeart' size='24' />
         </HeaderButton>
         <HeaderButton>
