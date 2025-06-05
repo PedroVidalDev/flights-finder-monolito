@@ -29,7 +29,7 @@ export const FlightsFindAllFilters = (
       filters.push({ field: 'destination', value: destination })
     }
     if (departureDate) {
-      filters.push({ field: 'departureDate', value: departureDate })
+      filters.push({ field: 'departure', value: departureDate })
     }
 
     fetchData(null, filters)
