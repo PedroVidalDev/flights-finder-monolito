@@ -26,6 +26,7 @@ export const FlightsFindAll = () => {
 
       <FlightsFindAllTable>
         <Table
+          fetchData={fetchGetAllFlights}
           columns={flightsHeaders}
           data={flights.map((flight) => {
             return [

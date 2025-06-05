@@ -6,7 +6,7 @@ import { TableCell, TableContainer, TableRow } from './styles'
 import { TablePagination } from './components/TablePagination'
 
 export const Table = (props: TableProps) => {
-  const { columns, data } = props
+  const { columns, data, fetchData } = props
 
   return (
     <TableContainer>
@@ -20,7 +20,7 @@ export const Table = (props: TableProps) => {
         </TableRow>
       ))}
 
-      <TablePagination />
+      <TablePagination fetchData={fetchData} />
     </TableContainer>
   )
 }

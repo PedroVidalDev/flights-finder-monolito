@@ -8,8 +8,13 @@ import { api } from 'services/axios'
 export const useFlights = () => {
   const [flights, setFlights] = useState<FlightDTO[]>([])
 
-  const fetchGetAllFlights = useCallback(async () => {
-    const response = await api.get<ResponseDTO<FlightDTO[]>>('/flights')
+  const fetchGetAllFlights = useCallback(async (page?: number) => {
+    const response = await api.get<ResponseDTO<FlightDTO[]>>('/flights', {
+      params: {
+        page: page ?? 1,
+        limit: 10,
+      },
+    })
     setFlights(response.data.data ?? [])
   }, [])
 
