@@ -1,9 +1,9 @@
 import { Request, Response } from "express";
 
 import { ResponseDTO } from "../dtos/response/ResponseDTO";
+import { PaginationParamsDTO } from "../dtos/pagination/PaginationParamsDTO";
 
 import { FlightService } from "../services/FlightService";
-import { PaginationParamsDTO } from "../dtos/pagination/PaginationParamsDTO";
 
 export class FlightController {
     private service: FlightService;
