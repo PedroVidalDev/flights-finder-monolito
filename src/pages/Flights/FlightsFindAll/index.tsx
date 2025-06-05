@@ -1,5 +1,7 @@
 import { useEffect } from 'react'
 
+import { getFormattedDate } from 'utils/getFormattedDate'
+
 import { Table } from 'components/Table'
 import { Header } from 'components/Header'
 import { FlightsFindAllFilters } from './components/FlightsFindAllFilters'
@@ -9,7 +11,6 @@ import { flightsHeaders } from 'constants/tableHeaders'
 import { useFlights } from 'hooks/useFlights'
 
 import { FlightsFindAllContainer, FlightsFindAllTable } from './styles'
-import { getFormattedDate } from 'utils/getFormattedDate'
 
 export const FlightsFindAll = () => {
   const { fetchGetAllFlights, flights, maxPage } = useFlights()

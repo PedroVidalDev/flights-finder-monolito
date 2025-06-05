@@ -24,15 +24,3 @@ export const HeaderButtons = styled.div`
   flex-direction: row;
   gap: 16px;
 `
-
-export const HeaderButton = styled.button`
-  border: none;
-  border-radius: 100%;
-
-  font-size: ${({ theme }) => theme.FONT_SIZE.MEDIUM};
-  font-weight: ${({ theme }) => theme.FONT_WEIGHT.MEDIUM};
-
-  background: none;
-
-  cursor: pointer;
-`

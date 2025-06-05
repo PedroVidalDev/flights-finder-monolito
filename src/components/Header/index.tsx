@@ -1,27 +1,39 @@
+import { useNavigate } from 'react-router-dom'
+
 import { HeaderProps } from './types'
 
-import { Icon } from 'components/Icon'
+import { Button } from 'components/Button'
 
-import {
-  HeaderButton,
-  HeaderButtons,
-  HeaderContainer,
-  HeaderTitle,
-} from './styles'
+import { HeaderButtons, HeaderContainer, HeaderTitle } from './styles'
 
 export const Header = (props: HeaderProps) => {
   const { title } = props
+
+  const currentPath = window.location.pathname
+
+  const navigate = useNavigate()
 
   return (
     <HeaderContainer>
       <HeaderTitle>{title}</HeaderTitle>
       <HeaderButtons>
-        <HeaderButton>
-          <Icon color='PRIMARY_COLOR_DARK' name='IoHeart' size='24' />
-        </HeaderButton>
-        <HeaderButton>
-          <Icon color='PRIMARY_COLOR_DARK' name='IoNotifications' size='24' />
-        </HeaderButton>
+        {currentPath !== '/flights/favorites' ? (
+          <Button
+            color='PRIMARY_COLOR_DARK'
+            icon='IoHeart'
+            text='Favoritos'
+            type='secondary'
+            onClick={() => navigate('/flights/favorites')}
+          />
+        ) : (
+          <Button
+            color='PRIMARY_COLOR_DARK'
+            icon='IoArrowBack'
+            text='Voltar para voos'
+            type='secondary'
+            onClick={() => navigate('/flights')}
+          />
+        )}
       </HeaderButtons>
     </HeaderContainer>
   )

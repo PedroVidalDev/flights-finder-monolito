@@ -2,13 +2,15 @@ import { useState } from 'react'
 
 import { Input } from 'components/Input'
 
+import { FlightsFindAllFiltersProps } from './types'
+
 import {
-  FilterButton,
+  FilterButtonContainer,
   FlightsFindAllFiltersContainer,
   FlightsFindAllFiltersTitle,
   InputsContainer,
 } from './style'
-import { FlightsFindAllFiltersProps } from './types'
+import { Button } from 'components/Button'
 
 export const FlightsFindAllFilters = (
   flightsFindAllFiltersProps: FlightsFindAllFiltersProps,
@@ -35,6 +37,14 @@ export const FlightsFindAllFilters = (
     fetchData(null, filters)
   }
 
+  const clearFilter = () => {
+    setOrigin('')
+    setDestination('')
+    setDepartureDate('')
+
+    fetchData(null, [])
+  }
+
   return (
     <FlightsFindAllFiltersContainer>
       <FlightsFindAllFiltersTitle>Filtros</FlightsFindAllFiltersTitle>
@@ -43,21 +53,39 @@ export const FlightsFindAllFilters = (
           type='text'
           label='Origem'
           onChange={(e) => setOrigin(e.target.value)}
+          value={origin}
         />
 
         <Input
           type='text'
           label='Destino'
           onChange={(e) => setDestination(e.target.value)}
+          value={destination}
         />
 
         <Input
           type='date'
           label='Data de partida'
           onChange={(e) => setDepartureDate(e.target.value)}
+          value={departureDate}
         />
       </InputsContainer>
-      <FilterButton onClick={handleFilter}>Filtrar</FilterButton>
+      <FilterButtonContainer>
+        <Button
+          type='secondary'
+          color='PRIMARY_COLOR_DARK'
+          onClick={clearFilter}
+          text='Limpar filtros'
+          icon='IoClose'
+        />
+        <Button
+          type='primary'
+          color='PRIMARY_COLOR'
+          onClick={handleFilter}
+          text='Filtrar'
+          icon='IoFilter'
+        />
+      </FilterButtonContainer>
     </FlightsFindAllFiltersContainer>
   )
 }

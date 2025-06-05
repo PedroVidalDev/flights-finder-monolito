@@ -36,3 +36,28 @@ export const TableCell = styled.div`
   overflow: hidden;
   text-overflow: ellipsis;
 `
+
+export const TableCellAction = styled.div`
+  width: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+  }
+`
+
+export const NoDataWarning = styled.p`
+  ${({ theme }) => css`
+    color: ${theme.COLORS.GRAY_DARK};
+    font-weight: ${theme.FONT_WEIGHT.MEDIUM};
+    font-size: ${theme.FONT_SIZE.MEDIUM};
+  `}
+
+  text-align: center;
+  margin-top: 24px;
+`
