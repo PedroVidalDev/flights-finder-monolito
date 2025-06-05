@@ -11,7 +11,7 @@ export class FlightRepository {
         this.model = PrismaClientSingleton.getInstance();
     }
 
-    public async findAll(paginationParamsDto: PaginationParamsDTO): Promise<Flight[]> {
+    public async findAll(paginationParamsDto: PaginationParamsDTO): Promise<[Flight[], number]> {
         const { page, limit } = paginationParamsDto;
         const skip = (page - 1) * limit;
 
@@ -20,7 +20,9 @@ export class FlightRepository {
             take: limit,
         });
 
-        return flightData.map(flight =>
+        const total = await this.model.flight.count();
+
+        return [flightData.map(flight =>
             new Flight(
                 flight.id,
                 flight.flightNumber,
@@ -31,7 +33,7 @@ export class FlightRepository {
                 flight.arrival,
                 flight.price
             )
-        );
+        ), total];
     }
 
     public async findById(id: number): Promise<Flight | null> {

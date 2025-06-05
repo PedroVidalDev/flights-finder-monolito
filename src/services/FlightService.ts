@@ -1,5 +1,6 @@
 import { FlightDTO } from "../dtos/flight/FlightDTO";
 import { PaginationParamsDTO } from "src/dtos/pagination/PaginationParamsDTO";
+import { PaginationResponseDTO } from "../dtos/pagination/PaginationResponseDTO";
 
 import { FlightRepository } from "../repositories/FlightRepository";
 
@@ -10,12 +11,15 @@ export class FlightService {
         this.repository = new FlightRepository();
     }
 
-    public async findAll(paginationParamsDto: PaginationParamsDTO): Promise<FlightDTO[]> {
-        const entities = await this.repository.findAll(paginationParamsDto);
+    public async findAll(paginationParamsDto: PaginationParamsDTO): Promise<PaginationResponseDTO<FlightDTO>> {
+        const [entities, total] = await this.repository.findAll(paginationParamsDto);
 
-        return entities.map(entity => (
-            entity.toDto()
-        ));
+        return new PaginationResponseDTO(
+            paginationParamsDto.page,
+            paginationParamsDto.limit,
+            total,
+            entities.map(entity => entity.toDto())
+        );
     }
 
     public async findById(id: number): Promise<FlightDTO | null> {

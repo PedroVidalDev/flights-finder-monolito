@@ -21,7 +21,7 @@ export class FlightController {
 
             const flights = await this.service.findAll(paginationParamsDto);
 
-            res.status(200).json(ResponseDTO.success(flights, 'Flights fetched successfully', paginationParamsDto));
+            res.status(200).json(ResponseDTO.success(flights, 'Flights fetched successfully'));
         } catch (error) {
             res.status(500).json(ResponseDTO.error(500, 'Failed to fetch flights'));
         }
