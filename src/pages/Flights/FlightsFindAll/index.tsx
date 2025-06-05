@@ -22,7 +22,7 @@ export const FlightsFindAll = () => {
     <FlightsFindAllContainer>
       <Header title='Buscar voos' />
 
-      <FlightsFindAllFilters />
+      <FlightsFindAllFilters fetchData={fetchGetAllFlights} />
 
       <FlightsFindAllTable>
         <Table

@@ -8,19 +8,31 @@ import {
   FlightsFindAllFiltersTitle,
   InputsContainer,
 } from './style'
+import { FlightsFindAllFiltersProps } from './types'
 
-export const FlightsFindAllFilters = () => {
+export const FlightsFindAllFilters = (
+  flightsFindAllFiltersProps: FlightsFindAllFiltersProps,
+) => {
+  const { fetchData } = flightsFindAllFiltersProps
+
   const [origin, setOrigin] = useState('')
   const [destination, setDestination] = useState('')
   const [departureDate, setDepartureDate] = useState('')
 
   const handleFilter = () => {
-    // Implement filter logic here
-    console.log('Filtering flights with:', {
-      origin,
-      destination,
-      departureDate,
-    })
+    const filters = []
+
+    if (origin) {
+      filters.push({ field: 'origin', value: origin })
+    }
+    if (destination) {
+      filters.push({ field: 'destination', value: destination })
+    }
+    if (departureDate) {
+      filters.push({ field: 'departureDate', value: departureDate })
+    }
+
+    fetchData(null, filters)
   }
 
   return (
@@ -45,7 +57,7 @@ export const FlightsFindAllFilters = () => {
           onChange={(e) => setDepartureDate(e.target.value)}
         />
       </InputsContainer>
-      <FilterButton onSubmit={handleFilter}>Filtrar</FilterButton>
+      <FilterButton onClick={handleFilter}>Filtrar</FilterButton>
     </FlightsFindAllFiltersContainer>
   )
 }
