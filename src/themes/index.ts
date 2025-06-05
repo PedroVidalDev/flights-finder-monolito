@@ -3,11 +3,15 @@ export const themes = {
     PRIMARY_COLOR: '#1692da',
     PRIMARY_COLOR_LIGHT: '#8acaf0',
     PRIMARY_COLOR_DARK: '#0e2c3e',
+
     BLACK: '#000000',
     WHITE: '#FFFFFF',
+    GRAY_LIGHTER: '#f2f2f2',
     GRAY_LIGHT: '#727272',
     GRAY_MEDIUM: '#545454',
     GRAY_DARK: '#1c1c1c',
+
+    ERROR: '#ff4d4d',
   },
   FONTS: {
     PRIMARY: 'Montserrat, sans-serif',

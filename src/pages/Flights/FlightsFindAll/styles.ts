@@ -8,6 +8,7 @@ export const FlightsFindAllContainer = styled.div`
   height: 100%;
 
   padding: 48px;
+  gap: 16px;
 `
 
 export const FlightsFindAllTable = styled.div`

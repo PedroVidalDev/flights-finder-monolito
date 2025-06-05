@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 
 import { Table } from 'components/Table'
 import { Header } from 'components/Header'
+import { FlightsFindAllFilters } from './components/FlightsFindAllFilters'
 
 import { flightsHeaders } from 'constants/tableHeaders'
 
@@ -11,7 +12,7 @@ import { FlightsFindAllContainer, FlightsFindAllTable } from './styles'
 import { getFormattedDate } from 'utils/getFormattedDate'
 
 export const FlightsFindAll = () => {
-  const { fetchGetAllFlights, flights } = useFlights()
+  const { fetchGetAllFlights, flights, maxPage } = useFlights()
 
   useEffect(() => {
     fetchGetAllFlights()
@@ -21,8 +22,12 @@ export const FlightsFindAll = () => {
     <FlightsFindAllContainer>
       <Header title='Buscar voos' />
 
+      <FlightsFindAllFilters fetchData={fetchGetAllFlights} />
+
       <FlightsFindAllTable>
         <Table
+          fetchData={fetchGetAllFlights}
+          maxPage={maxPage}
           columns={flightsHeaders}
           data={flights.map((flight) => {
             return [
