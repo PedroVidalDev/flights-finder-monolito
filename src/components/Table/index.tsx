@@ -3,6 +3,7 @@ import { TableHeader } from './components/TableHeader'
 import { TableProps } from './types'
 
 import { TableCell, TableContainer, TableRow } from './styles'
+import { TablePagination } from './components/TablePagination'
 
 export const Table = (props: TableProps) => {
   const { columns, data } = props
@@ -18,6 +19,8 @@ export const Table = (props: TableProps) => {
           ))}
         </TableRow>
       ))}
+
+      <TablePagination />
     </TableContainer>
   )
 }
