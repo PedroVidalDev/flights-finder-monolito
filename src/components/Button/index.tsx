@@ -9,7 +9,13 @@ export const Button = (props: ButtonProps) => {
 
   return (
     <ButtonContainer type={type} color={color} {...rest}>
-      {icon && <Icon name={icon} size='20px' color={color} />}
+      {icon && (
+        <Icon
+          name={icon}
+          size='20px'
+          color={type === 'secondary' ? color : 'WHITE'}
+        />
+      )}
       {text}
     </ButtonContainer>
   )

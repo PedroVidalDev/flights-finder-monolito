@@ -76,12 +76,14 @@ export const FlightsFindAllFilters = (
           color='PRIMARY_COLOR_DARK'
           onClick={clearFilter}
           text='Limpar filtros'
+          icon='IoClose'
         />
         <Button
           type='primary'
           color='PRIMARY_COLOR'
           onClick={handleFilter}
           text='Filtrar'
+          icon='IoFilter'
         />
       </FilterButtonContainer>
     </FlightsFindAllFiltersContainer>
