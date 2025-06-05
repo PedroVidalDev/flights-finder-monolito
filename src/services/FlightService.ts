@@ -1,4 +1,5 @@
 import { FlightDTO } from "../dtos/flight/FlightDTO";
+import { PaginationParamsDTO } from "src/dtos/pagination/PaginationParamsDTO";
 
 import { FlightRepository } from "../repositories/FlightRepository";
 
@@ -9,8 +10,8 @@ export class FlightService {
         this.repository = new FlightRepository();
     }
 
-    public async findAll(): Promise<FlightDTO[]> {
-        const entities = await this.repository.findAll();
+    public async findAll(paginationParamsDto: PaginationParamsDTO): Promise<FlightDTO[]> {
+        const entities = await this.repository.findAll(paginationParamsDto);
 
         return entities.map(entity => (
             entity.toDto()
